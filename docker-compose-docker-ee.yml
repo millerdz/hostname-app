@@ -1,0 +1,21 @@
+version: "3.3"
+
+services:
+  web:
+    image: derrickdocker/hostname-app:windowsservercore-1803
+    deploy:
+      replicas: 2
+      placement:
+          constraints:
+            - node.role != manager
+            - node.platform.os == windows
+      labels:
+        com.docker.lb.hosts: apps-win.example.org
+        com.docker.lb.network: hostnameapp
+        com.docker.lb.port: 80
+    networks:
+      - hostnameapp
+
+networks:
+  hostnameapp:
+    driver: overlay
