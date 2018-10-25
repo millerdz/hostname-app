@@ -18,3 +18,5 @@ PS C:\> docker image build -t my-asp-site .
 # View the webpage
 
 Open your browser and go to http://localhost:8080
+
+![](example_web_page.png)
