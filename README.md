@@ -47,3 +47,14 @@ PS C:\> docker image build -t my-asp-site .
 Open your browser and go to http://localhost:8080
 
 ![](example_web_page.png)
+
+# Deploy to Docker Enterprise and use Layer 7 Routing
+
+**NOTE**: Make sure to update `com.docker.lb.hosts` in `docker-compose-docker-ee.yml` with your actual domain you have configured. 
+
+```# Source env.ps1 from UCP client bundle
+PS C:\> docker stack deploy --orchestrator swarm -c docker-compose-docker-ee.yml hostnameapp
+```
+
+Once deployed, navigate to the URL configured for `com.docker.lb.hosts`, for example, http://apps-win.example.org, to access the application. 
+
